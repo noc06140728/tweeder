@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Masahiro Namba">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Tweeder - ツイートをお気に入りのフィードリーダーで</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Tweeder</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">ホーム</a></li>
+            <li><a href="#steps">設定方法</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Tweeder</h1>
+        <p>あの人のツイートを お気に入りのフィードリーダーで。</p>
+        <p><a class="btn btn-primary btn-lg" href="#steps">いますぐ設定する &raquo;</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-lg-4" style="text-align: center">
+          <img class="img-circle" src="img/twitter-bird-light-bgs.png"
+          alt="twitter icon" style="background-color: #eee; width: 200px; height: 200px;">
+          <h2>Twitter から</h2>
+          <p>気になる人のツイートは Twitter リストに登録して…。</p>
+        </div>
+        <div class="col-lg-4" style="text-align: center">
+          <img class="img-rounded" src="img/tweeder-icon.png"
+          alt="tweeder icon" style="background-color: #eee; width: 200px; height: 200px;">
+          <h2>Tweeder を経由して</h2>
+          <p>Tweeder は Twitter と フィードリーダーの橋渡し役。<br/>
+          Twitter リストからフィードを作って、フィードリーダーに渡します。</p>
+        </div>
+        <div class="col-lg-4" style="text-align: center">
+          <img class="img-circle" src="img/feed-icon.png"
+          alt="feed icon" style="background-color: #eee; width: 200px; height: 200px;">
+          <h2>フィードリーダー へ</h2>
+          <p>お気に入りのフィードリーダーで まとめてチェック。<br/>
+          これでもう 聞き漏らしや読み忘れの心配はありません！</p>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="row" id="steps">
+        <div class="col-lg-12" style="text-align: center">
+          <h1>設定手順は 3ステップ<br/>
+          <small>面倒なユーザー登録なども必要ありません。</small></h1>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="row">
+        <div class="col-lg-7">
+          <h2><small>ステップ 1</small><br/>Twitter でウィジェットを作成</h2>
+          <p>Tweeder は Twitter
+          のウィジェットからツイート情報を取得します。<br/>
+          まず最初に Twitter のウィジェットを作成しましょう。</p>
+          <p>ウィジェットの種類は、下記の 4通り があります。
+          どの種類のウィジェットでも Tweeder へ渡すことができます。</p>
+          <ul>
+            <li>ユーザーウィジェット（タイムライン）</li>
+            <li>お気に入りウィジェット</li>
+            <li>リストウィジェット</li>
+            <li>検索ウィジェット</li>
+          </ul>
+          <button type="button" class="btn btn-primary"
+            onclick="window.open('https://twitter.com/settings/widgets', 'popup1', 'width=840,height=480,resizable=yes,scrollbars=yes')"/>Twitter
+            のウィジェット作成ページを表示する</button><br/>
+        </div>
+        <div class="col-lg-5">
+          <img class="featurette-image img-responsive" src="img/step1.png" data-src="holder.js/500x500/auto" alt="500x500">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-lg-12">
+          <h2><small>ステップ 2</small><br/>ウィジェット ID を取得</h2>
+          <p>ステップ 1 で作成したウィジェットの ID を Tweeder へ通知します。</p>
+          <p>Tweeder で必要となるウィジェットの ID（18桁の数字）
+          は、ウィジェットの編集ページで確認することができます。</p>
+
+          <h3><small>方法 1</small><br/>URL で確認する</h3>
+          <p>ブラウザのアドレス欄に表示されている URL に <span
+class="text-success">ウィジェット ID</span> が含まれています。</p>
+
+          <pre class="text-muted">https://twitter.com/settings/widgets/<span class="text-success">123456789012345678</span>/edit...</pre>
+
+<h3><small>方法 2</small><br/>貼り付け用の HTML コードで確認する</h3>
+<p>ウィジェット貼り付け用の HTML コードに <span class="text-success">ウィジェット ID</span> が含まれています。</p>
+
+<pre class="text-muted">
+&lt;a class="twitter-timeline" href="https://twitter.com/search?q=..."
+data-widget-id="<span class="text-success">123456789012345678</span>"&gt;○○ に関するツイート&lt;/a&gt;
+&lt;script&gt;!function(...
+</pre>
+
+<h3>ウィジェット ID の入力</h3>
+          <form name="w_form" role="form">
+            <div class="form-group">
+              <input type="text" name="widget_id" maxlength="18"
+              ng-model="widget_id" ng-pattern="/^[0-9]{18}$/" required
+              placeholder="ウィジェット ID を入力" class="form-control"
+              id="widget_id" value=""/>
+              <span class="help-block error"
+              ng-show="w_form.widget_id.$error.required">ウィジット ID
+              を入力してください。</span>
+              <span class="help-block error" ng-show="w_form.widget_id.$error.pattern">18文字の数字を入力してください</span>
+              <span class="help-block valid"
+                ng-show="w_form.widget_id.$valid">ステップ 3 へ</span>
+            </div>
+          </form>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-lg-12">
+          <h2><small>ステップ 3</small><br/>フィードリーダーへ登録</h2>
+          <div ng-show="!w_form.widget_id.$valid">
+            <p>ステップ 2 のウィジェット ID が入力されていません。</p>
+          </div>
+          <div ng-show="w_form.widget_id.$valid">
+            <p>次の URL をフィードリーダーへ登録してください。</p>
+
+            <div class="well">
+              <img src="img/feed-icon-14x14.png" alt="feed"/>
+              <a href="http://hardwave-tweeder.appspot.com/feed/{{widget_id}}">http://hardwave-tweeder.appspot.com/feed/{{widget_id}}</a>
+            </div>
+
+            <p>Feedly に登録する場合には、次の Follow ボタンで簡単に登録できます。
+            <a
+              href='http://cloud.feedly.com/#subscription/feed/http://hardwave-tweeder.appspot.com/feed/{{widget_id}}'
+              target='_blank' title="FeedlyでRSSを購読する" ><img
+              src="http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-medium_2x.png"
+              alt="follow" width="71" height="28" style="margin: 4px;"
+              class="button-selectable"></a></p>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; HardWave 2013</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
