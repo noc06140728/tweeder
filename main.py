@@ -72,7 +72,7 @@ class MainHandler(webapp2.RequestHandler):
 
             feed.add_item(
                 title=strimwidth(title.text_content(), 30),
-                link=li.xpath('a/@href')[0],
+                link=li.xpath('.//a/@href')[0],
                 description=desc,
                 author_name=li.xpath(
                     './/span[@class="full-name"]/span/text()')[0],
